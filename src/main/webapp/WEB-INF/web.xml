@@ -101,6 +101,7 @@
 	</session-config>
 
 	<!-- 起始欢迎界面 -->
+	<!-- http://localhost:8080/WebBase/index.jsp -->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
