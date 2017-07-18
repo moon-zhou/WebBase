@@ -1,12 +1,12 @@
 -- 创建用户表
 create TABLE t_user(
     id BIGINT not null PRIMARY KEY comment '主键id',
-  name VARCHAR(80) not null comment '用户名',
+    name VARCHAR(80) not null comment '用户名',
     uid VARCHAR(40) comment '用户id',
     nickname VARCHAR(80) comment '用户昵称',
-  password VARCHAR(40) not null comment '用户密码',
+    password VARCHAR(40) not null comment '用户密码',
     sex tinyint not null comment '用户性别',
-  email VARCHAR(64) comment '用户邮箱',
+    email VARCHAR(64) comment '用户邮箱',
     mobile VARCHAR(20) comment '用户移动电话',
     create_time datetime not NULL DEFAULT CURRENT_TIMESTAMP comment '数据创建时间',
     update_time datetime not NULL comment '更新时间'
