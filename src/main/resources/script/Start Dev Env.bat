@@ -1,16 +1,26 @@
 @echo off
 
-for /f "skip=3 tokens=4" %%i in ('sc query MySQL57') do set "zt=%%i" &goto :next
+for /f "skip=3 tokens=4" %%i in ('sc query MySQL57') do set "zt=%%i" &goto :operation
 
-:next
+:operation
 if /i "%zt%"=="RUNNING" (
-    echo ÒÑ¾­·¢ÏÖ¸Ã·þÎñÔÚÔËÐÐ£¬ÏÖÔÚÒÑ¾­Í£Ö¹ÔËÐÐ
+    echo å·²ç»å‘çŽ°è¯¥æœåŠ¡åœ¨è¿è¡Œï¼ŒçŽ°åœ¨å·²ç»åœæ­¢è¿è¡Œ
     net stop MySQL57
-	taskkill /f /im navicat.exe
+    taskkill /f /im navicat.exe
 ) else (
-    echo ¸Ã·þÎñÏÖÔÚ´¦ÀíÍ£Ö¹×´Ì¬,½«½øÐÐÆô¶¯
+    echo è¯¥æœåŠ¡çŽ°åœ¨å¤„ç†åœæ­¢çŠ¶æ€,å°†è¿›è¡Œå¯åŠ¨
     net start MySQL57
-	start "" "D:\DevProgrm\PremiumSoft\Navicat Premium\navicat.exe"
+    start "" "D:\DevProgrm\PremiumSoft\Navicat Premium\navicat.exe"
 )
 
-pause
+rem pause
+
+set num=5
+:countDown
+if %num% equ 0 (goto:shutDos) else set /a num-=1
+echo %num% ç§’åŽå…³é—­dosçª—å£
+rem ping -n 2 127.0.1>nul 2>nul&cls
+ping -n 2 127.1>nul
+goto:countDown
+
+:shutDos
